@@ -29,18 +29,6 @@ workbox.precaching.precacheAndRoute([
     "revision": "6cc45e5d0dbb911c3512787aa220a20a"
   },
   {
-    "url": "js/jquery-3.2.1.min.js",
-    "revision": "c9f5aeeca3ad37bf2aa006139b935f0a"
-  },
-  {
-    "url": "js/jquery.embedvkgallery.js",
-    "revision": "57a4bc2b4b4a7b36276e7cc61358b054"
-  },
-  {
-    "url": "js/jquery.slimbox2.js",
-    "revision": "3ad181914071520493f29abe32592435"
-  },
-  {
     "url": "img/close.svg",
     "revision": "19e268f10b76d7613c2b8fade102a363"
   },
