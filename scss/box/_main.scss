@@ -1,0 +1,98 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+}
+
+.vk {}
+
+.embedvkgallery_img {
+    border-radius: 20px;
+    height: auto !important;
+    width: 100%;
+}
+
+.my-box {}
+
+.my-box1 {
+    height: auto !important;
+    width: 100vw !important;
+    padding: 0 5px 5px;
+}
+
+.embedvkgallery_link {}
+
+.title-opis {}
+
+#lbOverlay {}
+
+#lbCenter {}
+
+#lbBottomContainer {}
+
+#lbImage {
+    display: none;
+}
+
+#lbPrevLink {}
+
+#lbNextLink {}
+
+#lbBottom {}
+
+#lbCloseLink {
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5em;
+    color: #313131;
+    z-index: 1;
+}
+
+#lbCloseLink::after {
+    display: block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    background-image: url('../../img/close.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+#lbCaption {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    background-color: #ffffff;
+    bottom: 0;
+    left: 0;
+    padding: 0 15px;
+    width: 100vw;
+    height: 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#lbNumber {
+    position: fixed;
+    bottom: 30px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    background-color: #a52a2a;
+    font-size: 1.5em;
+    color: #fff;
+}
