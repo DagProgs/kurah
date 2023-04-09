@@ -3,7 +3,7 @@
     var proxyApi = 'https://7k0cvr7eaj.execute-api.us-east-1.amazonaws.com/dev/embed-vk-gallery'
     // by default we point url to the proxy (in case developer hasn't added access_token)
     var url = proxyApi
-    var access_token = ''
+    var access_token = 'e06de869e06de869e06de8694de37e9587ee06de06de869845f09866d51cce07e6169e6'
 
     $(function () {
         var nps = 'EmbedVkGallery';

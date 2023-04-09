@@ -34,7 +34,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "js/jquery.embedvkgallery.js",
-    "revision": "57a4bc2b4b4a7b36276e7cc61358b054"
+    "revision": "333a97130b7552eb03e730d1305b07f1"
   },
   {
     "url": "js/jquery.slimbox2.js",
