@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const gallery = document.querySelector(".gallery");
 
     // Загружаем JSON-файл с помощью fetch
-    fetch("https://dagprogs.github.io/apidb/kurakh/images.json")
+    fetch("js/json/images.json")
         .then(response => response.json())
         .then(imageData => {
             // Создаем элементы <img> и <p> для каждого изображения и его описания, и добавляем их в галерею
