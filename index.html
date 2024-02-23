@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Расчет времени до следующего намаза</title>
+</head>
+<body>
+<h1>Время до следующего намаза</h1>
+<p id="remainingTime"></p>
+
+<script>
+var currentTime = new Date();
+var currentMonth = currentTime.getMonth() + 1; // Месяцы в JavaScript начинаются с 0
+var currentDate = currentTime.getDate();
+
+var currentTimeInMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
+
+var prayerTimes = {
+  "2": {
+    "23": {"Fajr": [5, 30], "Dhuhr": [13, 0], "Asr": [15, 30], "Maghrib": [15, 52], "Isha": [19, 30]},
+    // Другие дни месяца
+  }
+};
+
+var prayerTimesInMinutes = {};
+if (prayerTimes[currentMonth] && prayerTimes[currentMonth][currentDate]) {
+    Object.keys(prayerTimes[currentMonth][currentDate]).forEach(function(prayer) {
+        prayerTimesInMinutes[prayer] = prayerTimes[currentMonth][currentDate][prayer][0] * 60 + prayerTimes[currentMonth][currentDate][prayer][1];
+    });
+}
+
+var currentPrayer = null;
+Object.keys(prayerTimesInMinutes).forEach(function(prayer) {
+    if (prayerTimesInMinutes[prayer] > currentTimeInMinutes) {
+        if (!currentPrayer || prayerTimesInMinutes[prayer] < prayerTimesInMinutes[currentPrayer]) {
+            currentPrayer = prayer;
+        }
+    }
+});
+
+// Функция для обновления времени каждую секунду
+function updateRemainingTime() {
+    var currentTime = new Date();
+    var currentTimeInMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
+
+    var remainingTimeInMinutes = prayerTimesInMinutes[currentPrayer] - currentTimeInMinutes;
+    var hours = Math.floor(remainingTimeInMinutes / 60);
+    var minutes = remainingTimeInMinutes % 60;
+
+    document.getElementById('remainingTime').innerText = 'До следующего намаза ' + currentPrayer + ' осталось ' + hours + ' часов ' + minutes + ' минут';
+
+    // Проверяем, если оставшееся время до намаза равно 0, то проигрываем азан
+    if (remainingTimeInMinutes === 0) {
+        playAzanSound(); // Воспроизводим звук азана
+    }
+}
+
+// Функция для проигрывания звука азана
+function playAzanSound() {
+    // Создаем новый аудио элемент
+    var audio = new Audio('1.mp3'); // Замените 'path_to_your_audio_file.mp3' на путь к вашему аудиофайлу азана
+
+    // Воспроизводим звук азана
+    audio.play();
+}
+
+
+// Вызываем функцию обновления времени каждую секунду
+setInterval(updateRemainingTime, 1000); // Обновляем каждую секунду (1000 миллисекунд = 1 секунда)
+
+
+</script>
+</body>
+</html>
