@@ -1,0 +1,178 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+}
+
+:root {
+  --header-fon: #007558;
+  --header-text: #fff;
+  --header-loc: #8ac9b9;
+  --subheader-fon: #007558;
+  --subheader-ru: #8ac9b9;
+  --subheader-ar: #8ac9b9;
+  --subheader-day: #8ac9b9;
+  --subheader-clock: #ffffff;
+  --clock-sec: #a3ffd4;
+}
+
+.header {
+  position: relative;
+  height: 60px;
+  z-index: 1;
+}
+
+.header_name_loc {
+  position: fixed;
+  width: 100vw;
+  min-width: 320px;
+  background-color: var(--header-fon);
+}
+
+.header_text {
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.header_name_loc h1 {
+  font-size: 2.5em;
+  color: var(--header-text);
+}
+
+.header_name_loc p {
+  padding-right: 15px;
+  padding-top: 8px;
+  font-size: 1.2em;
+  color: var(--header-loc);
+}
+
+.subheader {
+  height: 60px;
+}
+
+.subheader_data_clock {
+  display: flex;
+  justify-content: space-between;
+  min-width: 320px;
+  background-color: var(--subheader-fon);
+  height: 60px;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.subheader_mount_day p {
+  font-size: 1.3em;
+}
+
+.subheader_mount_day p:nth-child(1) {
+  color: var(--subheader-ru);
+}
+
+.subheader_mount_day p:nth-child(2) {
+  font-size: 1.1em;
+  color: var(--subheader-ar);
+}
+
+.subheader_mount_day p:nth-child(3) {
+  font-weight: bold;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: var(--subheader-day);
+}
+
+.subheader_clock p {
+  color: var(--subheader-clock);
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#clock span {
+  color: var(--clock-sec);
+  font-size: 0.6em;
+  font-weight: normal;
+}
+
+#clock span::before {
+  content: " ";
+}
+
+.prayerTimesTableBodyMain td {
+  text-align: left;
+  padding-left: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #007558;
+}
+
+.pastPrayer {
+  background-color: #f8d7da;
+  /* Цвет фона для наступившего намаза */
+}
+
+.nextPrayer {
+  background-color: #d4edda;
+  /* Цвет фона для следующего намаза */
+}
+
+.pastPrayerText {
+  color: #868686;
+  /* Цвет текста для прошедшего намаза */
+}
+
+.remainingTime {
+  font-weight: bold;
+  color: #000;
+}
+
+.listmounth {
+  width: 100vw;
+  height: 50px;
+  border: none;
+  font-size: 1.7em;
+  text-transform: uppercase;
+  padding-left: 15px;
+  color: #007558;
+}
+
+table {
+  width: 100vw;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.stici {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 60px;
+}
+
+.current-day-cell {
+  background-color: #007558;
+  color: #ffffff;
+}
+
+table tr th {
+  font-size: calc(2vw + 6px);
+  padding: 10px 2px;
+}
+
+table tr td {
+  font-size: calc(3vw + 2px);
+  text-align: center;
+  padding: 5px 1px;
+  border: 0px;
+}/*# sourceMappingURL=style.css.map */

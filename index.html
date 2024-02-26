@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Рузнама Курахский район</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header_name_loc">
+            <div class="header_text">
+                <h1>Рузнама</h1>
+                <p>Курахский район</p>
+            </div>
+        </div>
+    </div>
+    <!-- SubHeader -->
+    <div class="subheader">
+        <div class="subheader_data_clock">
+            <div class="subheader_mount_day">
+                <p id="date-ru">01 Января 2024 г</p>
+                <p class="hijri-date">01 Мухаррам 1445 г</p>
+                <p id="days">Понедельник</p>
+            </div>
+            <div class="subheader_clock">
+                <p id="clock">00:00<span></span>:00</p>
+            </div>
+        </div>
+    </div>
+    <!-- day -->
+    <table>
+        <thead>
+            <tr>
+                <th>Намаз</th>
+                <th>Время</th>
+                <th>Ост.время</th>
+            </tr>
+        </thead>
+        <tbody id="prayerTimesTableBodyMain" class="prayerTimesTableBodyMain">
+            <!-- Здесь будут динамически добавляться строки с временами намазов -->
+        </tbody>
+    </table>
+    <!-- mounyh -->
+    <select id="monthSelect" class="listmounth">
+        <option value="1">Январь</option>
+        <option value="2">Февраль</option>
+        <option value="3">Март</option>
+        <option value="4">Апрель</option>
+        <option value="5">Май</option>
+        <option value="6">Июнь</option>
+        <option value="7">Июль</option>
+        <option value="8">Август</option>
+        <option value="9">Сентябрь</option>
+        <option value="10">Октябрь</option>
+        <option value="11">Ноябрь</option>
+        <option value="12">Декабрь</option>
+    </select>
+
+    <table>
+        <thead>
+            <tr class="stici">
+                <th>Чис.</th>
+                <th>Фаджр</th>
+                <th>Шурук</th>
+                <th>Зухр</th>
+                <th>Аср</th>
+                <th>Магриб</th>
+                <th>Иша</th>
+            </tr>
+        </thead>
+        <tbody id="prayerTimesTableBody"></tbody>
+    </table>
+
+    <script src="js/subheader.js"></script>
+    <script src="js/day.js"></script>
+    <script src="js/mounth.js"></script>
+</body>
+
+</html>
