@@ -54,27 +54,7 @@
     
     <script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="main.js"></script>
     
-    <script>
-        // Находим элементы
-const tooltip = document.getElementById('tooltip');
-const tooltipText = document.querySelector('.tooltiptext');
-
-// Показываем подсказку при наведении
-tooltip.addEventListener('mouseover', () => {
-  tooltipText.style.visibility = 'visible';
-  tooltipText.style.opacity = '1';
-});
-
-// Скрываем подсказку при уходе курсора
-tooltip.addEventListener('mouseout', () => {
-  tooltipText.style.visibility = 'hidden';
-  tooltipText.style.opacity = '0';
-});
-
-
-
-
-    </script>
+   
     
     <script>
         // Проверяем, поддерживает ли браузер Web Share API
@@ -102,29 +82,7 @@ if (navigator.share) {
     </script>
 
 
-<script>
-    // Проверяем, является ли устройство Android
-    const isAndroid = /(android)/i.test(navigator.userAgent);
-  
-    // Если устройство не является Android, показываем подсказку
-    if (!isAndroid) {
-      // Находим элементы
-      const tooltip = document.getElementById('tooltip');
-      const tooltipText = document.querySelector('.tooltiptext');
-  
-      // Показываем подсказку при наведении
-      tooltip.addEventListener('mouseover', () => {
-        tooltipText.style.visibility = 'visible';
-        tooltipText.style.opacity = '1';
-      });
-  
-      // Скрываем подсказку при уходе курсора
-      tooltip.addEventListener('mouseout', () => {
-        tooltipText.style.visibility = 'hidden';
-        tooltipText.style.opacity = '0';
-      });
-    }
-  </script>
+
 
 <script type="module">
 
