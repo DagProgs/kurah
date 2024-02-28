@@ -23,6 +23,9 @@
   <h1>Test</h1>
   <p>Уведомления</p>
   <p>Уведомления</p>
+  <h1>Test</h1>
+  <p>Уведомления</p>
+  <p>Уведомления</p>
   <script>
     // Check for notification support and request permission
     if ('Notification' in window) {
@@ -52,12 +55,12 @@
           "Isha": [17, 52]
         },
         "28": {
-          "Fajr": [5, 39],
-          "Sunrise": [8, 22],
-          "Dhuhr": [8, 23],
+          "Fajr": [5, 40],
+          "Sunrise": [8, 42],
+          "Dhuhr": [8, 45],
           "Asr": [8, 26],
-          "Maghrib": [8, 30],
-          "Isha": [8, 35]
+          "Maghrib": [8, 43],
+          "Isha": [8, 55]
         }
       }
     };
@@ -77,7 +80,7 @@
           if (currentTime[0] === prayerTime[0] && currentTime[1] === prayerTime[1]) {
             const notification = new Notification(`Time for ${prayer}`, {
               body: `It's time for ${prayer} prayer.`,
-              icon: 'path/to/icon.png'
+              icon: 'assets/icons/icon-192x192.png'
             });
           }
         }
