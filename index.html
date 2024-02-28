@@ -13,58 +13,86 @@
   ></script>
 </head>
 <body>
-  <h1>Tefgfgfgst</h1>
-  <script>
-    const prayerTimes = {
+<h1>dfdfdf</h1>
+
+
+<script>
+  const prayerTimes = {
+    "1": {
+      "1": {
+        "Fajr": [4, 30],
+        "Sunrise": [6, 0],
+        "Dhuhr": [12, 0],
+        "Asr": [15, 0],
+        "Maghrib": [18, 0],
+        "Isha": [19, 30]
+      },
       "2": {
-          "1": {
-              "Fajr": [5, 39],
-              "Sunrise": [7, 13],
-              "Dhuhr": [11, 58],
-              "Asr": [14, 12],
-              "Maghrib": [16, 36],
-              "Isha": [17, 52]
-          },
-          "28": {
-              "Fajr": [10, 25],
-              "Sunrise": [10, 28],
-              "Dhuhr": [10, 30],
-              "Asr": [10, 10],
-              "Maghrib": [10, 33],
-              "Isha": [10, 38]
-          }
+        "Fajr": [4, 30],
+        "Sunrise": [6, 0],
+        "Dhuhr": [12, 0],
+        "Asr": [15, 0],
+        "Maghrib": [18, 0],
+        "Isha": [19, 30]
       }
-    };
+    },
+    "2": {
+      "1": {
+        "Fajr": [4, 30],
+        "Sunrise": [6, 0],
+        "Dhuhr": [12, 0],
+        "Asr": [15, 0],
+        "Maghrib": [18, 0],
+        "Isha": [19, 30]
+      },
+      "28": {
+        "Fajr": [4, 30],
+        "Sunrise": [6, 0],
+        "Dhuhr": [10, 41],
+        "Asr": [15, 0],
+        "Maghrib": [18, 0],
+        "Isha": [19, 30]
+      }
+    }
+  };
 
-    function checkPrayerTime() {
-      const today = new Date();
-      const dayOfMonth = today.getDate().toString();
-      const month = (today.getMonth() + 1).toString();
+  function checkPrayerTime() {
+    const today = new Date();
+    const dayOfMonth = today.getDate().toString();
+    const month = (today.getMonth() + 1).toString();
 
-      const times = prayerTimes[month] && prayerTimes[month][dayOfMonth];
+    const times = prayerTimes[month] && prayerTimes[month][dayOfMonth];
 
-      if (times) {
-        const currentTime = [today.getHours(), today.getMinutes()];
+    if (times) {
+      const currentTime = [today.getHours(), today.getMinutes()];
 
-        for (const prayer in times) {
-          const prayerTime = times[prayer];
-          if (currentTime[0] === prayerTime[0] && currentTime[1] === prayerTime[1]) {
-            const notification = new Notification(`Time for ${prayer}`, {
-              body: `It's time for ${prayer} prayer.`,
-              icon: 'path/to/icon.png'
-            });
-          }
+      for (const prayer in times) {
+        const prayerTime = times[prayer];
+        if (currentTime[0] === prayerTime[0] && currentTime[1] === prayerTime[1]) {
+          showNotification(`Time for ${prayer}`, `It's time for ${prayer} prayer.`);
         }
       }
     }
+  }
 
-    Notification.requestPermission().then((permission) => {
-      if (permission === 'granted') {
-        setInterval(checkPrayerTime, 60000);
-      }
-    });
-  </script>
-  <script type="text/javascript" src="runtime.js"></script>
+  function showNotification(title, body) {
+    if (Notification.permission === 'granted') {
+      const notification = new Notification(title, {
+        body: body,
+        icon: 'path/to/icon.png'
+      });
+    }
+  }
+
+  Notification.requestPermission().then((permission) => {
+    if (permission === 'granted') {
+      setInterval(checkPrayerTime, 60000);
+    }
+  });
+</script>
+
+
+<script type="text/javascript" src="runtime.js"></script>
   <script type="text/javascript" src="polyfills.js"></script>
   <script type="text/javascript" src="main.js"></script>
 

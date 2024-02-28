@@ -1,12 +1,12 @@
 {
-	"manifest_version": 10,
+	"manifest_version": 12,
   "lang": "ru",
   "dir": "ltr",
   "name": "test",
   "short_name": "test",
   "description": "test",
-  "version": "1.1.0",
-  "categories": ["ruznama", "religion", "prayer"],
+  "version": "2.1.1",
+  "categories": ["test", "test", "test"],
   "icons": [
 	{
       "src": "assets/icons/icon-72x72.png",
