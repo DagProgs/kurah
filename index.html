@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Рузнама Курахский район</title>
+	<link rel="manifest" href="manifest.json" />
+	<script
+      async
+      src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.8/pwacompat.min.js"
+      integrity="sha384-uONtBTCBzHKF84F6XvyC8S0gL8HTkAPeCyBNvfLfsqHh+Kd6s/kaS4BdmNQ5ktp1"
+      crossorigin="anonymous"
+    ></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="name_loc">
+            <h1>Рузнама</h1>
+            <p>Курахский район</p>
+        </div>
+    </div>
+    <!-- Sub Header -->
+    <div class="subheader">
+        <div class="day-mounth-year-clock">
+            <div class="ru-ar-week">
+                <div class="date-ru-ar">
+                    <p class="date-ru" id="ru-date">01 Января 2024 г</p>
+                    <p class="date-ar hijri-date">01 Мухаррам 1445 г</p>
+                </div>
+                <div class="box_week">
+                    <p class="week-ru" id="week-ru">Понедельник</p>
+                </div>
+            </div>
+            <div class="box_clock">
+                <p class="clock" id="clock">00:00:00</p>
+            </div>
+        </div>
+    </div>
+    <!-- Day -->
+    <div id="prayerTimesContainer"></div>
+    
+    <!-- Mounth, Year -->
+    <select id="monthSelect" class="listmounth sticii">
+        <option value="1">Январь</option>
+        <option value="2">Февраль</option>
+        <option value="3">Март</option>
+        <option value="4">Апрель</option>
+        <option value="5">Май</option>
+        <option value="6">Июнь</option>
+        <option value="7">Июль</option>
+        <option value="8">Август</option>
+        <option value="9">Сентябрь</option>
+        <option value="10">Октябрь</option>
+        <option value="11">Ноябрь</option>
+        <option value="12">Декабрь</option>
+    </select>
+
+    <table>
+        <thead>
+            <tr class="stici">
+                <th>Чис.</th>
+                <th>Фаджр</th>
+                <th>Шурук</th>
+                <th>Зухр</th>
+                <th>Аср</th>
+                <th>Магриб</th>
+                <th>Иша</th>
+            </tr>
+        </thead>
+        <tbody id="prayerTimesTableBody"></tbody>
+    </table>
+    <p id="currentMonth"></p>
+    
+    <div class="popup" id="popup">
+        <p class="juma">Джума Мубарак!!!</p>
+        <button id="closeBtn">X</button>
+    </div>
+
+
+	<script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="main.js"></script>
+
+    <script src="js/calendar-ru.js"></script>
+    <script src="js/calendar-ar.js"></script>
+    <script src="js/week-ru.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/day.js"></script>
+    <script src="js/mounth.js"></script>
+    <script src="js/juma-mubarak.js"></script>
+	
+	
+	<script type="module">
+
+import {Workbox} from 'https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-window.prod.mjs';
+
+if ('serviceWorker' in navigator) {
+
+  const wb = new Workbox('sw-workbox.js');
+
+  wb.addEventListener('installed', event => {
+    if (event.isUpdate) {
+      if (confirm(`New content is available!. Click OK to refresh`)) {
+        window.location.reload();
+      }
+    } else {
+        alert(`The app is offline-ready`)
+    }
+  });
+
+  wb.register();
+}
+
+  </script>
+</body>
+
+</html>
