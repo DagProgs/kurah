@@ -1,11 +1,11 @@
 {
-	"manifest_version": 12,
+	"manifest_version": 14,
   "lang": "ru",
   "dir": "ltr",
   "name": "test",
   "short_name": "test",
   "description": "test",
-  "version": "2.1.1",
+  "version": "2.2.2",
   "categories": ["test", "test", "test"],
   "icons": [
 	{
