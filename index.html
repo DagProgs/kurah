@@ -6,27 +6,56 @@
   <title>Prayer Time Notifications</title>
   <script src="jquery-3.6.0.min.js"></script>
   <link rel="manifest" href="manifest.json" />
-	<script
+  <script
       async
       src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.8/pwacompat.min.js"
       integrity="sha384-uONtBTCBzHKF84F6XvyC8S0gL8HTkAPeCyBNvfLfsqHh+Kd6s/kaS4BdmNQ5ktp1"
       crossorigin="anonymous"
     ></script>
-	<style>
-	body {
-	height: 200vh;
-	}
-	</style>
+  <style>
+    body {
+      height: 200vh;
+    }
+  </style>
 </head>
 <body>
-<h1>Test</h1>
-<p>Уведомления</p>
-<script>
-  const prayerTimes = {
+  <h1>Test</h1>
+  <p>Уведомления</p>
+  <script>
+    // Проверяем, поддерживаются ли уведомления в браузере
+    if ('Notification' in window) {
+      // Проверяем текущий статус разрешения уведомлений
+      if (Notification.permission === 'default') {
+        // Если разрешение не было предоставлено, запрашиваем его у пользователя
+        Notification.requestPermission().then(permission => {
+          // Обрабатываем ответ пользователя
+          if (permission === 'granted') {
+            // Разрешение было предоставлено, теперь можно отправлять уведомления
+            console.log('Разрешение на уведомления предоставлено.');
+            // Добавьте вашу логику для отправки уведомлений здесь
+          } else if (permission === 'denied') {
+            // Пользователь отказал в предоставлении разрешения
+            console.warn('Пользователь отказал в предоставлении разрешения на уведомления.');
+          } else {
+            // Разрешение не удалось получить, возможно, пользователь закрыл диалоговое окно
+            console.error('Не удалось получить разрешение на уведомления.');
+          }
+        });
+      } else if (Notification.permission === 'granted') {
+        // Уже есть разрешение, можно отправлять уведомления
+        console.log('Разрешение на уведомления уже предоставлено.');
+        // Добавьте вашу логику для отправки уведомлений здесь
+      }
+    } else {
+      console.error('Уведомления не поддерживаются в этом браузере.');
+    }
+
+    // Ваш существующий код для проверки времени и отправки уведомлений
+    const prayerTimes = {
     "2": {
         "1": {
             "Fajr": [5, 39],
-            "Sunrise": [7, 13],
+            "Sunrise": [8, 5],
             "Dhuhr": [11, 58],
             "Asr": [14, 12],
             "Maghrib": [16, 36],
@@ -43,8 +72,8 @@
     }
   };
 
-  function checkPrayerTime() {
-    if (!("Notification" in window)) {
+    function checkPrayerTime() {
+      if (!("Notification" in window)) {
       console.error("This browser does not support desktop notification");
       return;
     }
@@ -69,39 +98,20 @@
       }
     }
   }
-
-  Notification.requestPermission().then((permission) => {
-    if (permission === 'granted') {
-      setInterval(checkPrayerTime, 60000);
-    } else {
-      console.error("Permission for notifications denied by user");
     }
-  }).catch(err => {
-    console.error("Error occurred while requesting permission:", err);
-  });
-</script>
-<script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="main.js"></script>
-	<script type="module">
 
-import {Workbox} from 'https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-window.prod.mjs';
-
-if ('serviceWorker' in navigator) {
-
-  const wb = new Workbox('sw-workbox.js');
-
-  wb.addEventListener('installed', event => {
-    if (event.isUpdate) {
-      if (confirm(`New content is available!. Click OK to refresh`)) {
-        window.location.reload();
+    Notification.requestPermission().then((permission) => {
+      if (permission === 'granted') {
+        setInterval(checkPrayerTime, 60000);
+      } else {
+        console.error("Permission for notifications denied by user");
       }
-    } else {
-        alert(`The app is offline-ready`)
-    }
-  });
-
-  wb.register();
-}
-
+    }).catch(err => {
+      console.error("Error occurred while requesting permission:", err);
+    });
   </script>
+  <script type="text/javascript" src="runtime.js"></script>
+  <script type="text/javascript" src="polyfills.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
