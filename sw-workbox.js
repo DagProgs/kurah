@@ -50,39 +50,39 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "manifest.json",
-    "revision": "82366c8ee76731ab672554a2b11933d5"
+    "revision": "410215ae32bdff8ffaa5b21859c65655"
   },
   {
     "url": "assets/icons/icon-128x128.png",
-    "revision": "85b3af9d309bdaa2fc0968de94fd428e"
+    "revision": "434a9872c7bb0f4bdf9f179bceaaeb6a"
   },
   {
     "url": "assets/icons/icon-144x144.png",
-    "revision": "f113c3acffb6651e7dafc137686cda43"
+    "revision": "9d535667979599ee9d89c170411e2eea"
   },
   {
     "url": "assets/icons/icon-152x152.png",
-    "revision": "4ea984296e9afb23357cd21dfa419275"
+    "revision": "761705e2a371d05c73e1cad74d7b3cbc"
   },
   {
     "url": "assets/icons/icon-192x192.png",
-    "revision": "812fc767f3cad8e1d604356a9de83979"
+    "revision": "b48393baedd23ec7c76f6cfffea8936d"
   },
   {
     "url": "assets/icons/icon-384x384.png",
-    "revision": "9e04e7a29ef912e08bcde9140bd01650"
+    "revision": "aee64f3847f7f4a51278367e2a0c55f5"
   },
   {
     "url": "assets/icons/icon-512x512.png",
-    "revision": "9ab42780aa76805a57e67427d22cce9e"
+    "revision": "d9e62390bdf27cf995b8e962216fd6d7"
   },
   {
     "url": "assets/icons/icon-72x72.png",
-    "revision": "4b996b7a168549987d2121cd83769396"
+    "revision": "4e79cc467357c663e36a598f01f670e3"
   },
   {
     "url": "assets/icons/icon-96x96.png",
-    "revision": "7542b6327f938c0f7b876d0489c77eb9"
+    "revision": "740d8205e6a612fb7784e50a5468b98c"
   }
 ]);
 
