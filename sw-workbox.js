@@ -38,11 +38,19 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "css/style.css",
-    "revision": "ada81313ccf4695a5d35b492cd867908"
+    "revision": "78d3364c8b0c70d21ad9e535ea40a1f1"
+  },
+  {
+    "url": "js/jquery-3.2.1.min.js",
+    "revision": "c9f5aeeca3ad37bf2aa006139b935f0a"
+  },
+  {
+    "url": "js/jquery.embedvkgallery.js",
+    "revision": "6304f6826d864e33ced129bd1e9ba30c"
   },
   {
     "url": "manifest.json",
-    "revision": "4a911727a535e0b1d6e237735d321734"
+    "revision": "82366c8ee76731ab672554a2b11933d5"
   },
   {
     "url": "assets/icons/icon-128x128.png",
