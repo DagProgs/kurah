@@ -22,31 +22,23 @@ workbox.core.clientsClaim();
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
-    "revision": "ef02a78d2f1b649238bfe03845a24977"
+    "revision": "48c86ba1adc6ccdede720d7581fa819c"
   },
   {
-    "url": "main.js",
-    "revision": "80846bb3403b82a07c7f84658f186b23"
-  },
-  {
-    "url": "polyfills.js",
-    "revision": "56f34b0f4d3a42d45bfdb1782adaa173"
-  },
-  {
-    "url": "runtime.js",
-    "revision": "cd1ce3e306bf57f272364d1cc0249d6e"
+    "url": "pwacompat.min.js",
+    "revision": "0bf1bea41b1ba758d3989814c988f46e"
   },
   {
     "url": "css/style.css",
-    "revision": "78d3364c8b0c70d21ad9e535ea40a1f1"
+    "revision": "dd0c5731c59413c78ac150fea271ea32"
   },
   {
     "url": "js/jquery-3.2.1.min.js",
-    "revision": "c9f5aeeca3ad37bf2aa006139b935f0a"
+    "revision": "473957cfb255a781b42cb2af51d54a3b"
   },
   {
     "url": "js/jquery.embedvkgallery.js",
-    "revision": "6304f6826d864e33ced129bd1e9ba30c"
+    "revision": "2f481a9feb40fca67b24f377ace7b499"
   },
   {
     "url": "manifest.json",
@@ -103,15 +95,17 @@ workbox.routing.registerRoute(
 
 // API with network-first strategy
 workbox.routing.registerRoute(
-  /(http[s]?:\/\/)?([^\/\s]+\/)timeline/,
+  /(http[s]?:\/\/)?([^\/\s]+\/)embed-vk-gallery/,
   workbox.strategies.networkFirst()
 )
 
+/*
 // API with cache-first strategy
 workbox.routing.registerRoute(
   /(http[s]?:\/\/)?([^\/\s]+\/)favorites/,
   workbox.strategies.cacheFirst()
 )
+*/
 
 // OTHER EVENTS
 

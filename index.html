@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>img</title>
 	<link rel="manifest" href="manifest.json" />
-    <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.8/pwacompat.min.js"
+    <script async src="pwacompat.min.js"
         integrity="sha384-uONtBTCBzHKF84F6XvyC8S0gL8HTkAPeCyBNvfLfsqHh+Kd6s/kaS4BdmNQ5ktp1"
         crossorigin="anonymous"></script>
 </head>
@@ -36,7 +36,7 @@
     </script>
 	<script type="module">
 
-        import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-window.prod.mjs';
+        import { Workbox } from 'workbox-v4.3.0/workbox-window.prod.mjs';
 
         if ('serviceWorker' in navigator) {
 
@@ -56,9 +56,7 @@
         }
 
     </script>
-	<script type="text/javascript" src="runtime.js"></script>
-    <script type="text/javascript" src="polyfills.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+	
 </body>
 
 </html>
