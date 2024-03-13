@@ -1,4 +1,3 @@
-// Import Workbox library
 importScripts('workbox-v4.3.0/workbox-sw.js');
 
 // SETTINGS
@@ -23,7 +22,7 @@ workbox.core.clientsClaim();
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
-    "revision": "e1ac7bdfc7c8a60179c63c6c46ad2498"
+    "revision": "f3c674a74044f54662056c2305f98128"
   },
   {
     "url": "js/jquery-3.2.1.min.js",
@@ -39,7 +38,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "manifest.json",
-    "revision": "99654ab84aa9bbb6e3c3533f6cf830af"
+    "revision": "e79f4292acd08bb91d3f66b15c8a2950"
   },
   {
     "url": "assets/icons/icon-128x128.png",
@@ -90,14 +89,9 @@ workbox.routing.registerRoute(
   })
 );
 
+// OTHER EVENTS
+
 // Receive push and show a notification
 self.addEventListener('push', function(event) {
-  const options = {
-    body: 'Привет!', // Текст уведомления
-    icon: 'assets/icons/icon-152x152.png' // Иконка уведомления
-  };
-
-  event.waitUntil(
-    self.registration.showNotification('Привет!', options)
-  );
+  console.log('[Service Worker]: Received push event', event);
 });
