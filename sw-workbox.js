@@ -22,7 +22,7 @@ workbox.core.clientsClaim();
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
-    "revision": "49e3d8332a17c7dc654d6a502547bdbe"
+    "revision": "f4776368986d9f4fc252648b140a0962"
   },
   {
     "url": "pwacompat.min.js",
@@ -42,7 +42,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "manifest.json",
-    "revision": "410215ae32bdff8ffaa5b21859c65655"
+    "revision": "9d9ce9d0f4c9fb326611e4d6d25b1372"
   },
   {
     "url": "assets/icons/icon-128x128.png",
@@ -92,20 +92,6 @@ workbox.routing.registerRoute(
     ]
   })
 );
-
-// API with network-first strategy
-workbox.routing.registerRoute(
-  /(http[s]?:\/\/)?([^\/\s]+\/)embed-vk-gallery/,
-  workbox.strategies.networkFirst()
-)
-
-/*
-// API with cache-first strategy
-workbox.routing.registerRoute(
-  /(http[s]?:\/\/)?([^\/\s]+\/)favorites/,
-  workbox.strategies.cacheFirst()
-)
-*/
 
 // OTHER EVENTS
 
