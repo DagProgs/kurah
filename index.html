@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="header_box">
-            <h1>Курахский район 1</h1>
+            <h1>Курахский район</h1>
         </div>
     </header>
     <main>
@@ -35,17 +35,26 @@
 
     import { Workbox } from './workbox-v4.3.0/workbox-window.prod.mjs';
 
+    let updateRejected = false;
+
     if ('serviceWorker' in navigator) {
 
         const wb = new Workbox('sw-workbox.js');
 
-        wb.addEventListener('installed', event => {
-            if (event.isUpdate) {
+        function handleUpdate() {
+            if (!updateRejected) {
                 if (confirm(`Мы только что обновили версию приложения! Чтобы получить обновления, нажмите на кнопку OK.`)) {
                     window.location.reload();
                 } else {
-                    alert(`Вы отказались от обновления приложения. Для получения новых возможностей перезагрузите страницу в будущем.`);
+                    updateRejected = true;
+                    handleUpdate();
                 }
+            }
+        }
+
+        wb.addEventListener('installed', event => {
+            if (event.isUpdate) {
+                handleUpdate();
             } else {
                 alert(`Приложение готово к работе в автономном режиме`);
             }
@@ -55,6 +64,7 @@
     }
 
 </script>
+
 
 	
 </body>
