@@ -23,7 +23,7 @@ workbox.core.clientsClaim();
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
-    "revision": "f3c674a74044f54662056c2305f98128"
+    "revision": "e1ac7bdfc7c8a60179c63c6c46ad2498"
   },
   {
     "url": "js/jquery-3.2.1.min.js",
@@ -93,8 +93,8 @@ workbox.routing.registerRoute(
 // Receive push and show a notification
 self.addEventListener('push', function(event) {
   const options = {
-    body: 'Привет! Доброе утро, добрый день или добрый вечер!', // Текст уведомления
-    icon: '' // Иконка уведомления
+    body: 'Привет!', // Текст уведомления
+    icon: 'assets/icons/icon-152x152.png' // Иконка уведомления
   };
 
   event.waitUntil(
