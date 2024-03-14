@@ -1,7 +1,12 @@
-if (!localStorage.getItem('appInstalled') && /iPhone/.test(navigator.userAgent)) {
-    alert('Для лучшего опыта использования, установите приложение на вашем устройстве. Нажмите кнопку "Поделиться" и выберете "Добавить на главный экран".');
-    localStorage.setItem('appInstalled', 'true');
-}
+// if (!localStorage.getItem('appInstalled') && /iPhone/.test(navigator.userAgent)) {
+//     alert('Для лучшего опыта использования, установите приложение на вашем устройстве. Нажмите кнопку "Поделиться" и выберете "Добавить на главный экран".');
+//     localStorage.setItem('appInstalled', 'true');
+// }
+
+
+
+
+
 
 import { Workbox } from './workbox-v4.3.0/workbox-window.prod.mjs';
 
