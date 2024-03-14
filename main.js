@@ -3,11 +3,6 @@
 //     localStorage.setItem('appInstalled', 'true');
 // }
 
-
-
-
-
-
 import { Workbox } from './workbox-v4.3.0/workbox-window.prod.mjs';
 
 if ('serviceWorker' in navigator) {
