@@ -1,9 +1,16 @@
 import { Workbox } from './workbox-v4.3.0/workbox-window.prod.mjs';
 
 if (!localStorage.getItem('appInstalled') && !window.matchMedia('(display-mode: standalone)').matches) {
-    alert('Для лучшего опыта использования, установите приложение на вашем устройстве. Нажмите кнопку "1-Поделиться" и выберете "2-Добавить на главный экран" и "3-Добавить".<img src="Screen.png" alt="Add to Home Screen">');
+    // Открываем модальное окно
+    document.getElementById('myModal').style.display = "block";
     localStorage.setItem('appInstalled', 'true');
 }
+
+// Закрытие модального окна при нажатии на кнопку "Close"
+document.getElementsByClassName("close")[0].onclick = function() {
+    document.getElementById('myModal').style.display = "none";
+}
+
 
 
 
