@@ -1,4 +1,6 @@
-if (!localStorage.getItem('appInstalled') && !(/iPhone/.test(navigator.userAgent))) {
+import { Workbox } from './workbox-v4.3.0/workbox-window.prod.mjs';
+
+if (!localStorage.getItem('appInstalled')) {
     alert('Для лучшего опыта использования, установите приложение на вашем устройстве. Нажмите кнопку "Поделиться" и выберете "Добавить на главный экран".');
     localStorage.setItem('appInstalled', 'true');
 }
