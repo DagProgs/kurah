@@ -1,9 +1,11 @@
 import { Workbox } from './workbox-v4.3.0/workbox-window.prod.mjs';
 
-if (!localStorage.getItem('appInstalled')) {
+if (!localStorage.getItem('appInstalled') && !window.matchMedia('(display-mode: standalone)').matches) {
     alert('Для лучшего опыта использования, установите приложение на вашем устройстве. Нажмите кнопку "Поделиться" и выберете "Добавить на главный экран".');
     localStorage.setItem('appInstalled', 'true');
 }
+
+
 
 if ('serviceWorker' in navigator) {
     const wb = new Workbox('sw-workbox.js');
