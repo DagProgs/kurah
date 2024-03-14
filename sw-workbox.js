@@ -46,7 +46,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "manifest.json",
-    "revision": "1d3258b39e2040883e6e289d4c4fb852"
+    "revision": "48e6d4b12756be1f87f08fbbbc95ed69"
   },
   {
     "url": "assets/icons/icon-128x128.png",
