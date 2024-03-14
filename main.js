@@ -1,7 +1,7 @@
 import { Workbox } from './workbox-v4.3.0/workbox-window.prod.mjs';
 
 if (!localStorage.getItem('appInstalled') && !window.matchMedia('(display-mode: standalone)').matches) {
-    alert('Для лучшего опыта использования, установите приложение на вашем устройстве. Нажмите кнопку "Поделиться" и выберете "Добавить на главный экран".');
+    alert('Для лучшего опыта использования, установите приложение на вашем устройстве. Нажмите кнопку "1-Поделиться" и выберете "2-Добавить на главный экран" и "3-Добавить".<img src="Screen.png" alt="Add to Home Screen">');
     localStorage.setItem('appInstalled', 'true');
 }
 
