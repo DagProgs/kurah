@@ -22,7 +22,7 @@ workbox.core.clientsClaim();
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
-    "revision": "f3c674a74044f54662056c2305f98128"
+    "revision": "89d47616b4357119e5f0bfad61643d21"
   },
   {
     "url": "js/jquery-3.2.1.min.js",
@@ -38,7 +38,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "manifest.json",
-    "revision": "e79f4292acd08bb91d3f66b15c8a2950"
+    "revision": "a034b8d67112f47ce2ab9e63f43443e1"
   },
   {
     "url": "assets/icons/icon-128x128.png",

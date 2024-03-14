@@ -1,11 +1,11 @@
 {
-	"manifest_version": 16,
+	"manifest_version": 17,
   "lang": "ru",
   "dir": "ltr",
   "name": "Курахский район",
   "short_name": "Курахский р-он",
   "description": "Курахский район",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "categories": ["kurah", "kurakh"],
   "icons": [
 	{
