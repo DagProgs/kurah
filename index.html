@@ -34,17 +34,21 @@
             font-weight: bold;
             text-align: center;
             color: white;
-            background-color: #3498db;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
+            transition: opacity 0.3s;
         }
         .btn-google {
             background-color: #4285F4;
         }
         .btn-apple {
             background-color: #000;
+        }
+        .btn-android {
+            background-color: #3DDC84;
+            color: #000;
         }
         .btn:hover {
             opacity: 0.9;
@@ -56,34 +60,155 @@
             padding-top: 15px;
             border-top: 1px dashed #ccc;
         }
+        .instructions {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        .instructions.active {
+            display: block;
+        }
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .platform-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .platform-tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        .platform-tab.active {
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+        .instructions-content {
+            display: none;
+        }
+        .instructions-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <h1>🕌 Исламские Календари</h1>
     <p>Нажмите на кнопку, чтобы добавить календарь в свой телефон или Google Calendar.</p>
-	
-	<!-- Namaz Times -->
+    
+    <!-- Namaz Times -->
     <div class="calendar-card">
         <h2>🕋 Рузнама Курахский район</h2>
         <p>Ежедневные напоминания о времени намазов.</p>
-        <a href="https://dagprogs.github.io/kurah/namaz_times.ics" class="btn btn-apple" download>📲 Добавить в iPhone / Apple Calendar</a>
-        <a href="https://www.google.com/calendar/render?cid=https://dagprogs.github.io/kurah/namaz_times.ics" class="btn btn-google">➕ Добавить в Google Calendar</a>
+        
+        <div class="platform-tabs">
+            <div class="platform-tab active" onclick="showInstructions(this, 'apple-namaz')">iPhone</div>
+            <div class="platform-tab" onclick="showInstructions(this, 'android-namaz')">Android</div>
+            <div class="platform-tab" onclick="showInstructions(this, 'google-namaz')">Google Calendar</div>
+        </div>
+        
+        <div id="apple-namaz" class="instructions-content active">
+            <a href="https://dagprogs.github.io/kurah/namaz_times.ics" class="btn btn-apple" download>📲 Добавить в iPhone / Apple Calendar</a>
+            <p>1. Нажмите кнопку выше</p>
+            <p>2. Выберите "Добавить в календарь"</p>
+            <p>3. Календарь будет автоматически добавлен в приложение Календарь</p>
+        </div>
+        
+        <div id="android-namaz" class="instructions-content">
+            <a href="https://dagprogs.github.io/kurah/namaz_times.ics" class="btn btn-android" download>📲 Добавить на Android</a>
+            <p>1. Нажмите кнопку выше чтобы скачать файл</p>
+            <p>2. Откройте приложение Календарь</p>
+            <p>3. Нажмите меню → Настройки → Импорт → Выберите скачанный файл</p>
+            <p>4. Выберите аккаунт для импорта</p>
+        </div>
+        
+        <div id="google-namaz" class="instructions-content">
+            <a href="https://dagprogs.github.io/kurah/namaz_times.ics" class="btn btn-google" download>📥 Скачать .ics файл</a>
+            <p><strong>Для добавления в Google Calendar:</strong></p>
+            <ol>
+                <li>Скачайте файл, нажав кнопку выше</li>
+                <li>Откройте Google Calendar на компьютере</li>
+                <li>Рядом с "Другие календари" нажмите на плюсик → "Создать новый календарь"</li>
+                <li>Заполните информацию о календаре и нажмите "Создать календарь"</li>
+                <li>В левом меню наведите на новый календарь, нажмите на три точки → "Настройки и доступ"</li>
+                <li>В разделе "Импорт календаря" нажмите "Выберите файл на компьютере" и выберите скачанный .ics файл</li>
+                <li>Нажмите "Импорт"</li>
+            </ol>
+        </div>
     </div>
-	
+    
     <!-- Juma Mubarak -->
     <div class="calendar-card">
         <h2>🕌 Джума Мубарак</h2>
         <p>Напоминания о пятничной молитве и благословениях.</p>
-        <a href="https://dagprogs.github.io/kurah/juma_mubarak.ics" class="btn btn-apple" download>📲 Добавить в iPhone / Apple Calendar</a>
-        <a href="https://www.google.com/calendar/render?cid=https://dagprogs.github.io/kurah/juma_mubarak.ics" class="btn btn-google">➕ Добавить в Google Calendar</a>
+        
+        <div class="platform-tabs">
+            <div class="platform-tab active" onclick="showInstructions(this, 'apple-juma')">iPhone</div>
+            <div class="platform-tab" onclick="showInstructions(this, 'android-juma')">Android</div>
+            <div class="platform-tab" onclick="showInstructions(this, 'google-juma')">Google Calendar</div>
+        </div>
+        
+        <div id="apple-juma" class="instructions-content active">
+            <a href="https://dagprogs.github.io/kurah/juma_mubarak.ics" class="btn btn-apple" download>📲 Добавить в iPhone / Apple Calendar</a>
+            <p>1. Нажмите кнопку выше</p>
+            <p>2. Выберите "Добавить в календарь"</p>
+            <p>3. Календарь будет автоматически добавлен в приложение Календарь</p>
+        </div>
+        
+        <div id="android-juma" class="instructions-content">
+            <a href="https://dagprogs.github.io/kurah/juma_mubarak.ics" class="btn btn-android" download>📲 Добавить на Android</a>
+            <p>1. Нажмите кнопку выше чтобы скачать файл</p>
+            <p>2. Откройте приложение Календарь</p>
+            <p>3. Нажмите меню → Настройки → Импорт → Выберите скачанный файл</p>
+            <p>4. Выберите аккаунт для импорта</p>
+        </div>
+        
+        <div id="google-juma" class="instructions-content">
+            <a href="https://dagprogs.github.io/kurah/juma_mubarak.ics" class="btn btn-google" download>📥 Скачать .ics файл</a>
+            <p><strong>Для добавления в Google Calendar:</strong></p>
+            <ol>
+                <li>Скачайте файл, нажав кнопку выше</li>
+                <li>Откройте Google Calendar на компьютере</li>
+                <li>Рядом с "Другие календари" нажмите на плюсик → "Создать новый календарь"</li>
+                <li>Заполните информацию о календаре и нажмите "Создать календарь"</li>
+                <li>В левом меню наведите на новый календарь, нажмите на три точки → "Настройки и доступ"</li>
+                <li>В разделе "Импорт календаря" нажмите "Выберите файл на компьютере" и выберите скачанный .ics файл</li>
+                <li>Нажмите "Импорт"</li>
+            </ol>
+        </div>
     </div>
 
     <div class="note">
-        <p><strong>ℹ️ Как это работает:</strong></p>
-        <ul>
-            <li><strong>iPhone / Apple Calendar</strong> — нажмите кнопку, затем “Добавить в календарь”.</li>
-            <li><strong>Google Calendar</strong> — откроется Google Calendar, нажмите “Подписаться”.</li>
-        </ul>
+        <p><strong>ℹ️ Примечание:</strong></p>
+        <p>Если у вас возникают проблемы с добавлением календаря, попробуйте выполнить эти действия на компьютере, а затем синхронизировать календарь с вашим телефоном.</p>
     </div>
+
+    <script>
+        function showInstructions(tabElement, contentId) {
+            // Находим родительский элемент календаря
+            const calendarCard = tabElement.closest('.calendar-card');
+            
+            // Скрываем все инструкции в этом календаре
+            const allContents = calendarCard.querySelectorAll('.instructions-content');
+            allContents.forEach(content => content.classList.remove('active'));
+            
+            // Деактивируем все табы в этом календаре
+            const allTabs = calendarCard.querySelectorAll('.platform-tab');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Активируем выбранный таб и контент
+            tabElement.classList.add('active');
+            document.getElementById(contentId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
