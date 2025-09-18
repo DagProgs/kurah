@@ -2,9 +2,11 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//JumaReminder//EN
 CALSCALE:GREGORIAN
+X-WR-CALNAME:Джума Мубарак
+X-WR-CALDESC:Автоматически сгенерированный календарь с напоминаниями о пятничной молитве.
 BEGIN:VEVENT
 UID:juma-mubarak-recurring-since-2025@custom
-DTSTAMP:20250918T054927Z
+DTSTAMP:20250918T055535Z
 DTSTART;TZID=Europe/Moscow:20250103T120000
 DURATION:PT1H
 RRULE:FREQ=WEEKLY;BYDAY=FR;WKST=MO
