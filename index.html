@@ -1,250 +1,129 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Установка Исламских Календарей</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-        }
-        .calendar-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            margin: 15px 0;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        .btn-google {
-            background-color: #4285F4;
-        }
-        .btn-apple {
-            background-color: #000;
-        }
-        .btn-android {
-            background-color: #3DDC84;
-            color: #000;
-        }
-        .btn:hover {
-            opacity: 0.9;
-        }
-        .note {
-            font-size: 14px;
-            color: #777;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px dashed #ccc;
-        }
-        .instructions {
-            background-color: #fff8e1;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        .platform-tabs {
-            display: flex;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            overflow-x: auto;
-        }
-        .platform-tab {
-            padding: 10px 15px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            white-space: nowrap;
-        }
-        .platform-tab.active {
-            border-bottom: 3px solid #3498db;
-            font-weight: bold;
-        }
-        .instructions-content {
-            display: none;
-        }
-        .instructions-content.active {
-            display: block;
-        }
-        .step {
-            margin-bottom: 10px;
-            padding: 10px;
-            background: #f5f5f5;
-            border-radius: 5px;
-        }
-        .warning {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-    </style>
+<!DOCTYPE html><html><head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="n">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <title>n</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    var flet = {
+      pyodide: true,
+      multiView: false,
+      noCdn: "False".toLowerCase() == "true",
+      webSocketEndpoint: "/ws",
+      entrypointBaseUrl: "/",
+      assetBase: "/",
+      routeUrlStrategy: "path",
+      canvasKitBaseUrl: "/canvaskit/",
+      pyodideUrl: "/pyodide/pyodide.js",
+      pythonModuleName: "main",
+      webRenderer: "auto",
+      fontFallbackBaseUrl: "assets/fonts/", // for Noto Emoji, use Google CDN
+      appPackageUrl: "assets/app/app.zip"
+    }
+
+    flet.flutterAppLoaded = new Promise((resolve) => {
+      flet.flutterAppResolve = resolve;
+    });
+
+    flet.flutterAppLoaded.then((flutterApp) => {
+      console.log("Flutter app loaded");
+    });
+  </script>
+  <script src="python.js"></script>
+  <style id="splash-screen-style">
+    html {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      background-color: #ffffff;
+          background-size: 100% 100%;
+    }
+
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .contain {
+      display:block;
+      width:100%; height:100%;
+      object-fit: contain;
+    }
+
+    .stretch {
+      display:block;
+      width:100%; height:100%;
+    }
+
+    .cover {
+      display:block;
+      width:100%; height:100%;
+      object-fit: cover;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+    }
+
+    .bottomLeft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .bottomRight {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #222222;
+          }
+    }
+  </style>
+  <script id="splash-screen-script">
+    function removeSplashFromWeb() {
+      document.getElementById("splash")?.remove();
+      document.getElementById("splash-branding")?.remove();
+      document.body.style.background = "transparent";
+    }
+  </script>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 </head>
+
 <body>
-    <h1>🕌 Исламские Календари</h1>
+  <picture id="splash">
+      <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
+      <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
+      <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
+  </picture>
+  <script src="flutter_bootstrap.js" async=""></script>
 
-    
-    <!-- Namaz Times -->
-    <div class="calendar-card">
-        <h2>🕋 Рузнама Курахский район</h2>
-        <p>Ежедневные напоминания о времени намазов.</p>
-        
-        <div class="platform-tabs">
-            <div class="platform-tab active" onclick="showInstructions(this, 'apple-namaz')">iPhone</div>
-            <!--
-            <div class="platform-tab" onclick="showInstructions(this, 'android-namaz')">Android</div>
-            <div class="platform-tab" onclick="showInstructions(this, 'google-namaz')">Через ПК</div>
-            -->
-        </div>
-        
-        <div id="apple-namaz" class="instructions-content active">
-            <a href="https://dagprogs.github.io/kurah/namaz_times.ics" class="btn btn-apple" download>📲 Добавить в iPhone / Apple Calendar</a>
-            <div class="instructions">
-                <p><strong>Инструкция для iPhone:</strong></p>
-                <div class="step">1. Нажмите кнопку выше</div>
-                <div class="step">2. Выберите "Добавить в календарь"</div>
-                <div class="step">3. Календарь будет автоматически добавлен в приложение Календарь</div>
-            </div>
-        </div>
-        
-        <div id="android-namaz" class="instructions-content">
-            <div class="instructions">
-                <p class="warning">В стандартном приложении Календарь на Android нет функции импорта!</p>
-                <p><strong>Способы добавления на Android:</strong></p>
-                
-                <div class="step">1. <strong>Через Google Calendar на телефоне</strong></div>
-                <div class="step">- Откройте приложение Google Calendar</div>
-                <div class="step">- Нажмите на меню (три линии) → Настройки → Импорт событий</div>
-                <div class="step">- Выберите скачанный файл .ics</div>
-                
-                <div class="step">2. <strong>Через компьютер (рекомендуется)</strong></div>
-                <div class="step">- Добавьте календарь через Google Calendar на компьютере</div>
-                <div class="step">- Календарь автоматически синхронизируется с вашим телефоном</div>
-                
-                <div class="step">3. <strong>С помощью сторонних приложений</strong></div>
-                <div class="step">- Установите приложение для импорта календарей из Play Market</div>
-                <div class="step">- Например: "ICS Importer" или "Calendar Import"</div>
-            </div>
-            
-            <a href="https://dagprogs.github.io/kurah/namaz_times.ics" class="btn btn-android" download>📥 Скачать файл .ics</a>
-        </div>
-        
-        <div id="google-namaz" class="instructions-content">
-            <a href="https://dagprogs.github.io/kurah/namaz_times.ics" class="btn btn-google" download>📥 Скачать .ics файл</a>
-            <div class="instructions">
-                <p><strong>Добавление через компьютер (рекомендуется для Android):</strong></p>
-                <div class="step">1. Скачайте файл, нажав кнопку выше</div>
-                <div class="step">2. Откройте Google Calendar на компьютере</div>
-                <div class="step">3. Справа нажмите на плюсик рядом с "Другие календари"</div>
-                <div class="step">4. Выберите "Создать новый календарь"</div>
-                <div class="step">5. Заполните название и описание, нажмите "Создать календарь"</div>
-                <div class="step">6. В левом меню наведите на новый календарь, нажмите на три точки</div>
-                <div class="step">7. Выберите "Настройки и доступ"</div>
-                <div class="step">8. В разделе "Импорт календаря" нажмите "Выберите файл на компьютере"</div>
-                <div class="step">9. Выберите скачанный .ics файл и нажмите "Импорт"</div>
-                <div class="step">10. Календарь автоматически появится на вашем Android телефоне!</div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Juma Mubarak -->
-    <div class="calendar-card">
-        <h2>🕌 Джума Мубарак</h2>
-        <p>Напоминания о пятничной молитве и благословениях.</p>
-        
-        <div class="platform-tabs">
-            <div class="platform-tab active" onclick="showInstructions(this, 'apple-juma')">iPhone</div>
-            <!--
-            <div class="platform-tab" onclick="showInstructions(this, 'android-juma')">Android</div>
-            <div class="platform-tab" onclick="showInstructions(this, 'google-juma')">Через ПК</div>
-            -->
-        </div>
-        
-        <div id="apple-juma" class="instructions-content active">
-            <a href="https://dagprogs.github.io/kurah/juma_mubarak.ics" class="btn btn-apple" download>📲 Добавить в iPhone / Apple Calendar</a>
-            <div class="instructions">
-                <p><strong>Инструкция для iPhone:</strong></p>
-                <div class="step">1. Нажмите кнопку выше</div>
-                <div class="step">2. Выберите "Добавить в календарь"</div>
-                <div class="step">3. Календарь будет автоматически добавлен в приложение Календарь</div>
-            </div>
-        </div>
-        
-        <div id="android-juma" class="instructions-content">
-            <div class="instructions">
-                <p class="warning">В стандартном приложении Календарь на Android нет функции импорта!</p>
-                <p><strong>Способы добавления на Android:</strong></p>
-                
-                <div class="step">1. <strong>Через Google Calendar на телефоне</strong></div>
-                <div class="step">- Откройте приложение Google Calendar</div>
-                <div class="step">- Нажмите на меню (три линии) → Настройки → Импорт событий</div>
-                <div class="step">- Выберите скачанный файл .ics</div>
-                
-                <div class="step">2. <strong>Через компьютер (рекомендуется)</strong></div>
-                <div class="step">- Добавьте календарь через Google Calendar на компьютере</div>
-                <div class="step">- Календарь автоматически синхронизируется с вашим телефоном</div>
-            </div>
-            
-            <a href="https://dagprogs.github.io/kurah/juma_mubarak.ics" class="btn btn-android" download>📥 Скачать файл .ics</a>
-        </div>
-        
-        <div id="google-juma" class="instructions-content">
-            <a href="https://dagprogs.github.io/kurah/juma_mubarak.ics" class="btn btn-google" download>📥 Скачать .ics файл</a>
-            <div class="instructions">
-                <p><strong>Добавление через компьютер (рекомендуется для Android):</strong></p>
-                <div class="step">1. Скачайте файл, нажав кнопку выше</div>
-                <div class="step">2. Откройте Google Calendar на компьютере</div>
-                <div class="step">3. Справа нажмите на плюсик рядом с "Другие календари"</div>
-                <div class="step">4. Выберите "Создать новый календарь"</div>
-                <div class="step">5. Заполните название и описание, нажмите "Создать календарь"</div>
-                <div class="step">6. В левом меню наведите на новый календарь, нажмите на три точки</div>
-                <div class="step">7. Выберите "Настройки и доступ"</div>
-                <div class="step">8. В разделе "Импорт календаря" нажмите "Выберите файл на компьютере"</div>
-                <div class="step">9. Выберите скачанный .ics файл и нажмите "Импорт"</div>
-                <div class="step">10. Календарь автоматически появится на вашем Android телефоне!</div>
-            </div>
-        </div>
-    </div>
 
-   
 
-    <script>
-        function showInstructions(tabElement, contentId) {
-            // Находим родительский элемент календаря
-            const calendarCard = tabElement.closest('.calendar-card');
-            
-            // Скрываем все инструкции в этом календаре
-            const allContents = calendarCard.querySelectorAll('.instructions-content');
-            allContents.forEach(content => content.classList.remove('active'));
-            
-            // Деактивируем все табы в этом календаре
-            const allTabs = calendarCard.querySelectorAll('.platform-tab');
-            allTabs.forEach(tab => tab.classList.remove('active'));
-            
-            // Активируем выбранный таб и контент
-            tabElement.classList.add('active');
-            document.getElementById(contentId).classList.add('active');
-        }
-    </script>
-</body>
-</html>
+</body></html>
